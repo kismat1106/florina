@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Cute Baby</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        #game-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        #catch-btn {
+            position: absolute;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: top 0.3s, left 0.3s;
+            top: 40%;
+            left: 45%;
+        }
+        #letter-container {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px;
+            text-align: left;
+            line-height: 1.6;
+            color: #333;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        h1 { color: #ff1a1a; }
+    </style>
+</head>
+<body>
+
+    <div id="intro-area">
+        <h1>Catch the heart to read your message! ❤️</h1>
+        <div id="game-container">
+            <button id="catch-btn" onclick="catchHeart()">Catch Me!</button>
+        </div>
+    </div>
+
+    <div id="letter-container">
+        <h2>My sweet baby,</h2>
+        <p>Everyone says that their girlfriend is their heart but I say you, my cute baby, are the neurons.[cite: 1] Might sound lame but you really are k![cite: 1]</p>
+        <p>You, neurons, are there so my heart is working, so is lungs, so is my brain. I am living because of you.[cite: 1]</p>
+        <p>You always tell that I am sweet, no, my neurons make me sound sweet. Now you know where that sweetness comes from.[cite: 1]</p>
+        <p>Always wondered why do I think of only you 24/7 but now realised that every moment my neurons are being transmitted to my whole body and brain, so you are present within me and my mind in every pure moment of my life.[cite: 1]</p>
+        <p>U also confirmed this by sending that reel “Call me Na+/K+” wala reel. U may be Na+/ K+ in your eyes, but you areee fluorineaaa for me.[cite: 1]</p>
+        <p>My cutiepiee, I loveeee you more than anyone.[cite: 1]</p>
+        <p>By love,<br>I mean<br>To take care of you,<br>To love you when you are failing,<br>Support you when you are crying,<br>And not allowed to ever leave you now, I really promise, you are “the life partner” of mine,<br>To end every argument with love,<br>to make you feel loved,[cite: 1]</p>
+        <p>I don’t really know what do I see in you k,<br>you are like every ordinary girl, but u are not pani k<br>you have something different in you that I can feel but cant describe and don’t really know maybe we were meant to be and the universe just did its job.[cite: 1]</p>
+    </div>
+
+    <script>
+        // The good morning pop-ups
+        window.onload = function() {
+            setTimeout(() => {
+                alert("Goodmorning baby ❤️");
+                alert("You look absolutely beautiful today...");
+                alert("I made a little something for you. Play the game to unlock it!");
+            }, 500);
+        };
+
+        // The game logic
+        let clicks = 0;
+        const btn = document.getElementById('catch-btn');
+        const gameContainer = document.getElementById('game-container');
+
+        // Move the button when she hovers (makes it a bit hard to catch!)
+        btn.addEventListener('mouseover', function() {
+            if(clicks < 3) {
+                const maxX = gameContainer.clientWidth - btn.clientWidth;
+                const maxY = gameContainer.clientHeight - btn.clientHeight;
+                
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+                
+                btn.style.left = randomX + 'px';
+                btn.style.top = randomY + 'px';
+            }
+        });
+
+        function catchHeart() {
+            clicks++;
+            if (clicks === 1) {
+                alert("Ouch! Okay, catch me two more times!");
+            } else if (clicks === 2) {
+                alert("Almost there! One more time!");
+            } else if (clicks >= 3) {
+                alert("You caught my heart! Here is your message.");
+                document.getElementById('intro-area').style.display = 'none';
+                document.getElementById('letter-container').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
